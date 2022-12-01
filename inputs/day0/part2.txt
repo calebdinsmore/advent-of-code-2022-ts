@@ -1,1 +1,1 @@
-Hi I'm part 2!
+This Day is empty and part of the template; the actual AoC answers are in day1-25
