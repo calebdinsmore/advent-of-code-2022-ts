@@ -1,12 +1,12 @@
 import { Day } from '../day';
 
-const SHAPE_SCORE: { [key: string]: number } = {
+const SHAPE_SCORE = {
   X: 1,
   Y: 2,
   Z: 3,
 };
 
-const BEAT_MAP: { [key: string]: string } = {
+const BEAT_MAP = {
   A: 'Z',
   B: 'X',
   C: 'Y',
@@ -24,7 +24,7 @@ const BEAT_ARRAY = [
   ['Z', 'B'],
 ];
 
-const DRAW_MAP: { [key: string]: string } = {
+const DRAW_MAP = {
   A: 'X',
   B: 'Y',
   C: 'Z',
