@@ -1,6 +1,8 @@
-# Advent of code Typescript Starter
+# Advent of Code 2022 🎄
 
-A simple [Advent of code](https://adventofcode.com/) starter project with Typescript and jest for testing.
+My solutions for Advent of Code 2022, written in TypeScript!
+
+Note: `day0` is the template used to generate each day's boilerplate: actual implementations start at `day1`.
 
 ## How to use
 
@@ -20,4 +22,4 @@ For each day, where `X` is the day number (1-25):
 
 ## Credits
 
-Some code was liberally taken from https://github.com/stemmlerjs/simple-typescript-starter after some serious head-desking
+Repo was created based on this template: https://github.com/LBognanni/adventofcode-typescript-starter
