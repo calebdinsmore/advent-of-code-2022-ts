@@ -15,15 +15,6 @@ const BEAT_MAP = {
   Z: 'B',
 };
 
-const BEAT_ARRAY = [
-  ['A', 'Z'],
-  ['B', 'X'],
-  ['C', 'Y'],
-  ['X', 'C'],
-  ['Y', 'A'],
-  ['Z', 'B'],
-];
-
 const DRAW_MAP = {
   A: 'X',
   B: 'Y',
@@ -39,8 +30,7 @@ class Day2 extends Day {
     const matches = input.split('\n');
     let score = 0;
     for (let match of matches) {
-      const opp = match.split(' ')[0];
-      const you = match.split(' ')[1];
+      const [opp, you] = match.split(' ');
 
       if (BEAT_MAP[opp] === you) {
         score += SHAPE_SCORE[you];
@@ -57,12 +47,13 @@ class Day2 extends Day {
     const matches = input.split('\n');
     let score = 0;
     for (let match of matches) {
-      const opp = match.split(' ')[0];
-      const result = match.split(' ')[1];
+      const [opp, result] = match.split(' ');
+
       let you: string;
+      const beatArray = Object.entries(BEAT_MAP);
       switch (result) {
         case 'X':
-          you = BEAT_ARRAY.find((x) => x[0] === opp)![1];
+          you = beatArray.find((x) => x[0] === opp)![1];
           score += SHAPE_SCORE[you];
           break;
         case 'Y':
@@ -70,7 +61,7 @@ class Day2 extends Day {
           score += 3 + SHAPE_SCORE[you];
           break;
         case 'Z':
-          you = BEAT_ARRAY.find((x) => x[1] === opp)![0];
+          you = beatArray.find((x) => x[1] === opp)![0];
           score += 6 + SHAPE_SCORE[you];
           break;
         default:
