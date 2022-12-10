@@ -8,18 +8,12 @@
       "type": "node",
       "request": "launch",
       "name": "Run Tests",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
+      "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/index.ts",
-      "args": [
-        "8"
-      ],
+      "args": ["9"],
       "preLaunchTask": "tsc: build - tsconfig.json",
       "sourceMaps": true,
-      "outFiles": [
-        "${workspaceFolder}/build/**/*.js"
-      ]
+      "outFiles": ["${workspaceFolder}/build/**/*.js"]
     }
   ]
 }
