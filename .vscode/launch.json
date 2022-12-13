@@ -10,7 +10,7 @@
       "name": "Run Tests",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/index.ts",
-      "args": ["11"],
+      "args": ["12"],
       "preLaunchTask": "tsc: build - tsconfig.json",
       "sourceMaps": true,
       "outFiles": ["${workspaceFolder}/build/**/*.js"]
