@@ -22,7 +22,11 @@ class Day14 extends Day {
     while (!hasFallenIntoTheVoid) {
       hasFallenIntoTheVoid = simulateSand([500, 0], grid);
     }
-    return grid.flat().map(x => x === 'o' ? 0+1 : 0).reduce((a,b) => a + b).toString();
+    return grid
+      .flat()
+      .map((x) => (x === 'o' ? 0 + 1 : 0))
+      .reduce((a, b) => a + b)
+      .toString();
   }
 
   solveForPartTwo(input: string): string {
@@ -30,9 +34,9 @@ class Day14 extends Day {
       .split('\n')
       .map((l) => l.split(' -> ').map((p) => p.split(',').map((n) => parseInt(n)))) as [number, number][][];
     const maxX = Math.max(...coords.flat(2)) + 1000;
-    const maxY = Math.max(...coords.flat().map(p => p[1])) + 3;
+    const maxY = Math.max(...coords.flat().map((p) => p[1])) + 3;
     const grid = Array.from({ length: maxY }, () => Array.from({ length: maxX }).fill('.')) as string[][];
-    drawRock([0, maxY-1], [maxX, maxY-1], grid);
+    drawRock([0, maxY - 1], [maxX, maxY - 1], grid);
     for (const lineCoords of coords) {
       for (let i = 0; i < lineCoords.length - 1; i++) {
         drawRock(lineCoords[i], lineCoords[i + 1], grid);
@@ -42,7 +46,11 @@ class Day14 extends Day {
     while (!hasBlockedSource) {
       hasBlockedSource = simulateSand([500, 0], grid);
     }
-    return grid.flat().map(x => x === 'o' ? 0+1 : 0).reduce((a,b) => a + b).toString();
+    return grid
+      .flat()
+      .map((x) => (x === 'o' ? 0 + 1 : 0))
+      .reduce((a, b) => a + b)
+      .toString();
   }
 }
 
@@ -54,8 +62,8 @@ class Day14 extends Day {
  */
 function simulateSand(sandPoint: [number, number], grid: string[][]): boolean {
   const [sandX, sandY] = sandPoint;
-  // fallen into the void
   if (pathBlocked(grid[0][500])) return true;
+  // fallen into the void
   if (grid.at(sandY + 1)?.at(sandX) === undefined) return true;
   if (
     pathBlocked(grid[sandY + 1][sandX]) &&
@@ -67,13 +75,13 @@ function simulateSand(sandPoint: [number, number], grid: string[][]): boolean {
     return false;
   }
 
-  if (!pathBlocked(grid[sandY + 1][sandX])) { 
+  if (!pathBlocked(grid[sandY + 1][sandX])) {
     return simulateSand([sandX, sandY + 1], grid);
-  } else if (!pathBlocked(grid[sandY + 1][sandX - 1]))  {
-    return simulateSand([sandX - 1, sandY + 1], grid)
+  } else if (!pathBlocked(grid[sandY + 1][sandX - 1])) {
+    return simulateSand([sandX - 1, sandY + 1], grid);
   } else {
     return simulateSand([sandX + 1, sandY], grid);
-  } 
+  }
 }
 
 function pathBlocked(symbol: string) {
