@@ -14,6 +14,7 @@ import day11 from './day11/index';
 import day12 from './day12/index';
 import day13 from './day13/index';
 import day14 from './day14/index';
+import { performance } from 'perf_hooks';
 // MORE IMPORTS HERE
 const days: Day[] = [
   day0,
@@ -35,14 +36,18 @@ const days: Day[] = [
 ];
 
 async function runDay(dayId: number) {
+  let startTime = performance.now();
   const resultPart1 = await days[dayId].partOne();
-  console.log('Part 1 result:\n');
+  let endTime = performance.now();
+  console.log(`Part 1 result (${endTime - startTime} ms):\n`);
   console.log(resultPart1);
 
   console.log('\n');
 
+  startTime = performance.now();
   const resultPart2 = await days[dayId].partTwo();
-  console.log('Part 2 result:\n');
+  endTime = performance.now();
+  console.log(`Part 2 result (${endTime - startTime} ms):\n`);
   console.log(resultPart2);
 }
 

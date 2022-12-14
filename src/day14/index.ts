@@ -17,7 +17,7 @@ class Day14 extends Day {
         drawRock(lineCoords[i], lineCoords[i + 1], grid);
       }
     }
-    // writeGridToTest(grid);
+
     let hasFallenIntoTheVoid = false;
     while (!hasFallenIntoTheVoid) {
       hasFallenIntoTheVoid = simulateSand([500, 0], grid);
@@ -38,10 +38,9 @@ class Day14 extends Day {
         drawRock(lineCoords[i], lineCoords[i + 1], grid);
       }
     }
-    writeGridToTest(grid);
-    let hasFallenIntoTheVoid = false;
-    while (!hasFallenIntoTheVoid) {
-      hasFallenIntoTheVoid = simulateSand([500, 0], grid);
+    let hasBlockedSource = false;
+    while (!hasBlockedSource) {
+      hasBlockedSource = simulateSand([500, 0], grid);
     }
     return grid.flat().map(x => x === 'o' ? 0+1 : 0).reduce((a,b) => a + b).toString();
   }
@@ -95,10 +94,6 @@ function drawRock(pointA: [number, number], pointB: [number, number], grid: stri
       grid[y][x] = '#';
     }
   }
-}
-
-function writeGridToTest(grid: string[][]) {
-  writeFile('./test.txt', grid.map((x) => x.join(' ')).join('\n'), (err) => console.log(err));
 }
 
 export default new Day14();
