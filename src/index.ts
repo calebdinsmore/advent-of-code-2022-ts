@@ -15,6 +15,7 @@ import day12 from './day12/index';
 import day13 from './day13/index';
 import day14 from './day14/index';
 import { performance } from 'perf_hooks';
+import day15 from './day15/index';
 // MORE IMPORTS HERE
 const days: Day[] = [
   day0,
@@ -32,6 +33,7 @@ const days: Day[] = [
     day12,
     day13,
     day14,
+    day15,
     // MORE DAYS HERE
 ];
 
